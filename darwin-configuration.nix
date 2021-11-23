@@ -7,6 +7,7 @@
     with pkgs; 
     [ wget
       ripgrep
+      tig
     ];
 
   nix.extraOptions = ''

@@ -9,3 +9,4 @@ Run `make`.
 ## TODO 
 
 - [ ] Integrate this repo to https://github.com/srid/nixos-config
+  - Use its Nix configuration (git, tmux, etc)

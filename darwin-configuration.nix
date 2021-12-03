@@ -1,17 +1,17 @@
-{ config, pkgs, ... }:
+{ config, pkgs, rosettaPkgs, ... }:
 
 {
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
-  environment.systemPackages =
-    with pkgs;
-    [
-      wget
-      ripgrep
-      tig
-      direnv
-      tmux
-    ];
+  environment.systemPackages = with pkgs; [
+    wget
+    ripgrep
+    tig
+    direnv
+    tmux
+    rosettaPkgs.agda
+  ];
+
 
   nix.extraOptions = ''
     extra-platforms = aarch64-darwin x86_64-darwin

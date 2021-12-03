@@ -10,7 +10,11 @@
   outputs = { self, darwin, nixpkgs }: {
     darwinConfigurations."air" = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
+      specialArgs = {
+        rosettaPkgs = import nixpkgs { system = "x86_64-darwin"; };
+      };
       modules = [ ./darwin-configuration.nix ];
     };
   };
 }
+

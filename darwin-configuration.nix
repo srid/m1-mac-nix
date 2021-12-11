@@ -13,8 +13,8 @@
     tmux
     pass
     # rosettaPkgs.agda
-    (rosettaPkgs.agda.withPackages (p: [ p.standard-library ]))
-    rosettaPkgs.coq
+    # (rosettaPkgs.agda.withPackages (p: [ p.standard-library ]))
+    #rosettaPkgs.coq
     # (rosettaPkgs.haskellPackages.callHackage "agda-language-server" "0.2.1" { })
   ];
 

@@ -6,17 +6,24 @@
   environment.systemPackages = with pkgs; [
     wget
     ripgrep
+    sd
     tig
     direnv
+    nix-direnv
     tmux
-    rosettaPkgs.agda
+    pass
+    # rosettaPkgs.agda
+    (rosettaPkgs.agda.withPackages (p: [ p.standard-library ]))
+    rosettaPkgs.coq
+    # (rosettaPkgs.haskellPackages.callHackage "agda-language-server" "0.2.1" { })
   ];
-
 
   nix.extraOptions = ''
     extra-platforms = aarch64-darwin x86_64-darwin
     experimental-features = nix-command flakes
   '';
+
+  nixpkgs.config.allowBroken = true;
 
   services.lorri.enable = true;
 

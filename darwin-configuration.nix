@@ -8,12 +8,15 @@
     ripgrep
     sd
     tig
-    direnv
-    nix-direnv
     tmux
     pass
-    # rosettaPkgs.agda
-    # (rosettaPkgs.agda.withPackages (p: [ p.standard-library ]))
+
+    # We must install Agda globally so that Doom-Emacs' agda config can
+    # recognize it. It doesn't matter that our projects use Nix/direnv.
+    # 
+    # Emacs configuration system assumes global state, and is thus shit. We just work with it.
+    # https://github.com/hlissner/doom-emacs/blob/f458f9776049fd7e9523318582feed682e7d575c/modules/lang/agda/config.el#L3-L8
+    (rosettaPkgs.agda.withPackages (p: [ p.standard-library ]))
     #rosettaPkgs.coq
     # (rosettaPkgs.haskellPackages.callHackage "agda-language-server" "0.2.1" { })
   ];
@@ -24,8 +27,6 @@
   '';
 
   nixpkgs.config.allowBroken = true;
-
-  services.lorri.enable = true;
 
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix

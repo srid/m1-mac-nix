@@ -5,6 +5,7 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
     wget
+    aria2
     ripgrep
     sd
     tig
@@ -17,6 +18,7 @@
     # Emacs configuration system assumes global state, and is thus shit. We just work with it.
     # https://github.com/hlissner/doom-emacs/blob/f458f9776049fd7e9523318582feed682e7d575c/modules/lang/agda/config.el#L3-L8
     (rosettaPkgs.agda.withPackages (p: [ p.standard-library ]))
+    rosettaPkgs.idris2
     #rosettaPkgs.coq
     # (rosettaPkgs.haskellPackages.callHackage "agda-language-server" "0.2.1" { })
   ];

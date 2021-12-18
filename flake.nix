@@ -2,7 +2,7 @@
   description = "Srid's darwin system";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/581d2d6c9cd5c289002203581d8aa0861963a933";
+    nixpkgs.url = "github:nixos/nixpkgs/03ec468b14067729a285c2c7cfa7b9434a04816c";
     darwin.url = "github:lnl7/nix-darwin/master";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
